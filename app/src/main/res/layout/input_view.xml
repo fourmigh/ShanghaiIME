@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:padding="8dp">
+
+    <!-- 显示输入内容的 EditText -->
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="输入拼音或笔画"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:imeOptions="actionDone"
+        android:focusable="false"
+        android:inputType="none" />
+    <LinearLayout
+        android:id="@+id/candidateContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="8dp"/>
+
+    <!-- 切换拼音和笔画键盘的按钮 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="8dp">
+
+        <Button
+            android:id="@+id/switchToPinyin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="拼音键盘"/>
+
+        <Button
+            android:id="@+id/switchToBihua"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="笔画键盘"/>
+    </LinearLayout>
+
+    <!-- 拼音键盘 -->
+    <LinearLayout
+        android:id="@+id/pinyinKeyboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="8dp"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnPinyinQ"
+                style="@style/KeyboardButton"
+                android:text="q"/>
+            <Button
+                android:id="@+id/btnPinyinW"
+                style="@style/KeyboardButton"
+                android:text="w"/>
+            <Button
+                android:id="@+id/btnPinyinE"
+                style="@style/KeyboardButton"
+                android:text="e"/>
+            <Button
+                android:id="@+id/btnPinyinR"
+                style="@style/KeyboardButton"
+                android:text="r"/>
+            <Button
+                android:id="@+id/btnPinyinT"
+                style="@style/KeyboardButton"
+                android:text="t"/>
+            <Button
+                android:id="@+id/btnPinyinY"
+                style="@style/KeyboardButton"
+                android:text="y"/>
+            <Button
+                android:id="@+id/btnPinyinU"
+                style="@style/KeyboardButton"
+                android:text="u"/>
+            <Button
+                android:id="@+id/btnPinyinI"
+                style="@style/KeyboardButton"
+                android:text="i"/>
+            <Button
+                android:id="@+id/btnPinyinO"
+                style="@style/KeyboardButton"
+                android:text="o"/>
+            <Button
+                android:id="@+id/btnPinyinP"
+                style="@style/KeyboardButton"
+                android:text="p"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnPinyinA"
+                style="@style/KeyboardButton"
+                android:text="a"/>
+            <Button
+                android:id="@+id/btnPinyinS"
+                style="@style/KeyboardButton"
+                android:text="s"/>
+            <Button
+                android:id="@+id/btnPinyinD"
+                style="@style/KeyboardButton"
+                android:text="d"/>
+            <Button
+                android:id="@+id/btnPinyinF"
+                style="@style/KeyboardButton"
+                android:text="f"/>
+            <Button
+                android:id="@+id/btnPinyinG"
+                style="@style/KeyboardButton"
+                android:text="g"/>
+            <Button
+                android:id="@+id/btnPinyinH"
+                style="@style/KeyboardButton"
+                android:text="h"/>
+            <Button
+                android:id="@+id/btnPinyinJ"
+                style="@style/KeyboardButton"
+                android:text="j"/>
+            <Button
+                android:id="@+id/btnPinyinK"
+                style="@style/KeyboardButton"
+                android:text="k"/>
+            <Button
+                android:id="@+id/btnPinyinL"
+                style="@style/KeyboardButton"
+                android:text="l"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnPinyinZ"
+                style="@style/KeyboardButton"
+                android:text="z"/>
+            <Button
+                android:id="@+id/btnPinyinX"
+                style="@style/KeyboardButton"
+                android:text="x"/>
+            <Button
+                android:id="@+id/btnPinyinC"
+                style="@style/KeyboardButton"
+                android:text="c"/>
+            <Button
+                android:id="@+id/btnPinyinV"
+                style="@style/KeyboardButton"
+                android:text="ü"/>
+            <Button
+                android:id="@+id/btnPinyinB"
+                style="@style/KeyboardButton"
+                android:text="b"/>
+            <Button
+                android:id="@+id/btnPinyinN"
+                style="@style/KeyboardButton"
+                android:text="n"/>
+            <Button
+                android:id="@+id/btnPinyinM"
+                style="@style/KeyboardButton"
+                android:text="m"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 笔画键盘 -->
+    <LinearLayout
+        android:id="@+id/bihuaKeyboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="8dp"
+        android:visibility="gone">
+
+        <!-- 笔画键盘第一排 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnBihuaHeng"
+                style="@style/KeyboardButton"
+                android:text="一 (横)"/>
+            <Button
+                android:id="@+id/btnBihuaShu"
+                style="@style/KeyboardButton"
+                android:text="丨 (竖)"/>
+            <Button
+                android:id="@+id/btnBihuaPie"
+                style="@style/KeyboardButton"
+                android:text="丿 (撇)"/>
+        </LinearLayout>
+
+        <!-- 笔画键盘第二排 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnBihuaDian"
+                style="@style/KeyboardButton"
+                android:text="丶 (点)"/>
+            <Button
+                android:id="@+id/btnBihuaZhe"
+                style="@style/KeyboardButton"
+                android:text="乙 (折)"/>
+        </LinearLayout>
+
+        <!-- 更多笔画行可以根据需要添加 -->
+    </LinearLayout>
+
+</LinearLayout>
