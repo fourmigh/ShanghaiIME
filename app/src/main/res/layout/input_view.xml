@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@android:color/white"
-    android:padding="8dp">
+    android:padding="1dp">
 
     <!-- 显示输入内容的 EditText -->
     <EditText
@@ -17,33 +17,48 @@
         android:imeOptions="actionDone"
         android:focusable="false"
         android:inputType="none" />
-    <LinearLayout
-        android:id="@+id/candidateContainer"
+    <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="8dp">
+        <LinearLayout
+            android:id="@+id/candidateContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"/>
+    </HorizontalScrollView>
 
     <!-- 切换拼音和笔画键盘的按钮 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="8dp">
+        android:gravity="center"
+        android:layout_marginTop="2dp">
 
-        <Button
-            android:id="@+id/switchToPinyin"
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/switchToPinyin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="拼音键盘"/>
+
+            <Button
+                android:id="@+id/switchToBihua"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="笔画键盘"/>
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/ibDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="拼音键盘"/>
-
-        <Button
-            android:id="@+id/switchToBihua"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="笔画键盘"/>
+            android:src="@android:drawable/ic_input_delete"/>
     </LinearLayout>
 
     <!-- 拼音键盘 -->

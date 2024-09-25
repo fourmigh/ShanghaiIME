@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.LinearLayout
 
 class ShanghaiIME : InputMethodService() {
@@ -77,6 +78,22 @@ class ShanghaiIME : InputMethodService() {
             }
         }
 
+        val ibDelete = inputView.findViewById<ImageButton>(R.id.ibDelete)
+        ibDelete.setOnClickListener {
+            if (pinyin.isEmpty()) {
+                return@setOnClickListener
+            }
+            pinyin.deleteCharAt(pinyin.length - 1)
+            showCandidates(candidateContainer)
+        }
+        ibDelete.setOnLongClickListener {
+            if (pinyin.isNotEmpty()) {
+                pinyin.clear()
+                showCandidates(candidateContainer)
+            }
+            true
+        }
+
         initPinyin()
 
         return inputView
@@ -106,18 +123,26 @@ class ShanghaiIME : InputMethodService() {
 //    }
 
     private fun showCandidates(candidateContainer: LinearLayout) {
+        val pinyins = PinyinEnum.values()
+        val candidates = ArrayList<String>()
 //        val candidates = pinyinToChineseMap[pinyin]
-//        candidateContainer.removeAllViews()
-//
-//        candidates?.forEach { candidate ->
-//            val candidateButton = Button(this)
-//            candidateButton.text = candidate
-//            candidateButton.setOnClickListener {
-//                findViewById<EditText>(R.id.editText).append(candidate)
-//                pinyin.clear() // 清空拼音输入
-//                candidateContainer.removeAllViews() // 清除候选字
-//            }
-//            candidateContainer.addView(candidateButton)
-//        }
+        candidateContainer.removeAllViews()
+        for (py in pinyins) {
+            val pinyinFormat = formatEnum(py)
+            if (pinyinFormat.startsWith(pinyin)) {
+                candidates.add(pinyinFormat)
+            }
+        }
+        if (candidates.isNotEmpty()) {
+            candidates.forEach { candidate ->
+                val candidateButton = Button(this)
+                candidateButton.text = candidate
+                candidateButton.setOnClickListener {
+                    pinyin.clear() // 清空拼音输入
+                    candidateContainer.removeAllViews() // 清除候选字
+                }
+                candidateContainer.addView(candidateButton)
+            }
+        }
     }
 }
