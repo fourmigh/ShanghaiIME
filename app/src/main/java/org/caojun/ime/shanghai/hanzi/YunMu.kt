@@ -1,4 +1,4 @@
-package org.caojun.ime.shanghai
+package org.caojun.ime.shanghai.hanzi
 
 enum class YunMu {
     a, o, e, i, u, ü,//单韵母

@@ -1,4 +1,4 @@
-package org.caojun.ime.shanghai
+package org.caojun.ime.shanghai.hanzi
 
 enum class ShengMu {
     b, p, m, f,

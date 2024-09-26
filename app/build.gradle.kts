@@ -45,4 +45,5 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     implementation(libs.pinyin4j)
+    implementation(libs.klog)
 }

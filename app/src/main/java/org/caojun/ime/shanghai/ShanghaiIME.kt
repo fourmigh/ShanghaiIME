@@ -3,12 +3,14 @@ package org.caojun.ime.shanghai
 import android.inputmethodservice.InputMethodService
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.LinearLayout
+import com.socks.library.KLog
+import org.caojun.ime.shanghai.hanzi.Pinyin2Hanzi
+import org.caojun.ime.shanghai.hanzi.PinyinEnum
 
 class ShanghaiIME : InputMethodService() {
 
@@ -100,10 +102,19 @@ class ShanghaiIME : InputMethodService() {
     }
 
     private fun initPinyin() {
+        val pys = ArrayList<PinyinEnum>()
         for (pinyin in PinyinEnum.values()) {
             val shenmu = pinyin.shengmu
             val yunmu = pinyin.yunmu
-            Log.d("PinyinEnum", "${formatEnum(pinyin)} : ${formatEnum(shenmu)} , ${formatEnum(yunmu)}")
+            pys.add(pinyin)
+            KLog.d("Pinyin", "PinyinEnum: ${formatEnum(pinyin)} = ${formatEnum(shenmu)}${formatEnum(yunmu)}")
+        }
+        for (ph in Pinyin2Hanzi.pinyin2Hanzi.entries) {
+            KLog.d("Pinyin", "Pinyin2Hanzi: ${formatEnum(ph.key)} = ${ph.value.toList()}")
+            pys.remove(ph.key)
+        }
+        for (pinyin in pys) {
+            KLog.d("Pinyin", "PinyinEnum Left: ${formatEnum(pinyin)}")
         }
     }
     private fun formatEnum(enum: Enum<*>?): String {

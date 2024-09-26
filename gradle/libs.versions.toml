@@ -9,6 +9,7 @@ appcompat = "1.7.0"
 material = "1.12.0"
 hanlp = "portable-1.8.3"
 pinyin4j = "1.0.7"
+klog = "1.6.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -19,6 +20,7 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 hanlp = { group = "com.hankcs", name = "hanlp", version.ref = "hanlp" }
 pinyin4j = { group = "cn.lalaki", name = "pinyin4j-chinese-simplified", version.ref = "pinyin4j" }
+klog = { group = "com.github.zhaokaiqiang.klog", name = "library", version.ref = "klog" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
