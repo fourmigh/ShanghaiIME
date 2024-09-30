@@ -102,19 +102,13 @@ class ShanghaiIME : InputMethodService() {
     }
 
     private fun initPinyin() {
-        val pys = ArrayList<PinyinEnum>()
         for (pinyin in PinyinEnum.values()) {
             val shenmu = pinyin.shengmu
             val yunmu = pinyin.yunmu
-            pys.add(pinyin)
             KLog.d("Pinyin", "PinyinEnum: ${formatEnum(pinyin)} = ${formatEnum(shenmu)}${formatEnum(yunmu)}")
         }
         for (ph in Pinyin2Hanzi.pinyin2Hanzi.entries) {
             KLog.d("Pinyin", "Pinyin2Hanzi: ${formatEnum(ph.key)} = ${ph.value.toList()}")
-            pys.remove(ph.key)
-        }
-        for (pinyin in pys) {
-            KLog.d("Pinyin", "PinyinEnum Left: ${formatEnum(pinyin)}")
         }
     }
     private fun formatEnum(enum: Enum<*>?): String {
